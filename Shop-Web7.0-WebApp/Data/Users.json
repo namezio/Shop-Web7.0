@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "UserName": "admin",
+  "Password": "123456",
+  "AvatarUrl": "",
+  "FullName": "Admin",
+  "Gender": "Male",
+  "IdUserType":1,
+  "IsBlocked": true,
+  "IsDeleted": false
+}
