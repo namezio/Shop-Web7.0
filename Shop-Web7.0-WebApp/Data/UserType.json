@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "Name": "Admin",
+    "IsOwner": true,
+    "IsBackUser": false,
+    "IsEndUser": false
+  },
+  {
+    "id": 2,
+    "Name": "Customer",
+    "IsOwner": false,
+    "IsBackUser": true,
+    "IsEndUser": false
+  },
+  {
+    "id": 3,
+    "Name": "Staff",
+    "IsOwner": false,
+    "IsBackUser": false,
+    "IsEndUser": true
+  }
+]

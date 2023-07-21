@@ -125,4 +125,16 @@ public class UserRepository : BaseRepository
 
         return SetCache(user);
     }
+    
+    public bool IsUserNameExisted(string userName, int id = 0)
+    {
+        userName = userName.ToLower().Trim();
+        if (string.IsNullOrEmpty(userName))
+            return true;
+
+        if (id < 1)
+            return DbContext.Users.Any(x => x.UserName.Equals(userName) && !x.IsDeleted);
+
+        return DbContext.Users.Any(x => x.UserName.Equals(userName) && !x.IsDeleted && x.Id != id);
+    }
 }

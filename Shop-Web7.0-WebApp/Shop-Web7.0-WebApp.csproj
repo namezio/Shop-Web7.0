@@ -36,6 +36,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\WebApp.Common\WebApp.Common.csproj" />
       <ProjectReference Include="..\WebApp.Database\WebApp.Database.csproj" />
     </ItemGroup>
 
