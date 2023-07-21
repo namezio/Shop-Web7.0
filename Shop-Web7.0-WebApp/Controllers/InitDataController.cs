@@ -7,9 +7,10 @@ using WebApp.Database;
 
 namespace Shop_Web7._0_WebApp.Controllers;
 
-public class InitDataController:BaseController
+public class InitDataController : BaseController
 {
-    public InitDataController(IStringLocalizerFactory factory, WebAppEntities dbContext, IDistributedCache cache) : base(factory)
+    public InitDataController(IStringLocalizerFactory factory, WebAppEntities dbContext, IDistributedCache cache) :
+        base(factory)
     {
         DbContext = dbContext;
         Cache = cache;
@@ -18,6 +19,6 @@ public class InitDataController:BaseController
     public IActionResult Index()
     {
         new UserRepository(DbContext).InitData();
-        
+        return Ok();
     }
 }

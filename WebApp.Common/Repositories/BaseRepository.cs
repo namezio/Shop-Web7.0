@@ -167,4 +167,9 @@ public class BaseRepository
 
         return html;
     }
+
+    public virtual void InitData()
+    {
+        throw new NotImplementedException();
+    }
 }

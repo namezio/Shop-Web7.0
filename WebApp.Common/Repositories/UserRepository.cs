@@ -1,4 +1,5 @@
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -11,11 +12,13 @@ namespace WebApp.Common.Repositories;
 public class UserRepository : BaseRepository
 {
     private readonly ILogger<UserRepository> _logger;
-    public UserRepository(WebAppEntities dbContext, IDistributedCache cache = null) : base(dbContext, cache)
+
+    public UserRepository(WebAppEntities dbContext, IDistributedCache cache = null) :
+        base(dbContext, cache)
     {
     }
 
-    public void InitData()
+    public override void InitData()
     {
         var path = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Users.json");
         if (!File.Exists(path))
@@ -73,7 +76,7 @@ public class UserRepository : BaseRepository
 
         if (Cache == null)
             return cached;
-        
+
         var json = JsonConvert.SerializeObject(cached);
         var cacheOptions = new DistributedCacheEntryOptions
         {
@@ -99,7 +102,7 @@ public class UserRepository : BaseRepository
 
         return JsonConvert.DeserializeObject<UserCache>(json);
     }
-    
+
     public UserCache FindOneCacheById(int id)
     {
         var cached = FindOneCache("user_id:" + id);
@@ -112,7 +115,7 @@ public class UserRepository : BaseRepository
 
         return SetCache(user);
     }
-    
+
     public UserCache FindOneCacheByUsername(string username)
     {
         var cached = FindOneCache("usr_username:" + username);
@@ -125,7 +128,7 @@ public class UserRepository : BaseRepository
 
         return SetCache(user);
     }
-    
+
     public bool IsUserNameExisted(string userName, int id = 0)
     {
         userName = userName.ToLower().Trim();

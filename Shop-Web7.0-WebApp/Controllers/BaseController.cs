@@ -15,19 +15,19 @@ public class BaseController :Controller
     public readonly IStringLocalizer Languages;
     public string LanguageCode;
     
-    // public BaseController(IStringLocalizerFactory factory)
-    // {
-    //     var type = typeof(Resources.Languages);
-    //     var assemblyFullname = type.GetTypeInfo().Assembly.FullName;
-    //     if (string.IsNullOrEmpty(assemblyFullname))
-    //         return;
-    //         
-    //     var assemblyName = new AssemblyName(assemblyFullname).Name;
-    //     if (string.IsNullOrEmpty(assemblyName))
-    //         return;
-    //         
-    //     Languages = factory.Create(type.Name, assemblyName);
-    // }
+    public BaseController(IStringLocalizerFactory factory)
+    {
+        // var type = typeof(Resources.Languages);
+        // var assemblyFullname = type.GetTypeInfo().Assembly.FullName;
+        // if (string.IsNullOrEmpty(assemblyFullname))
+        //     return;
+        //     
+        // var assemblyName = new AssemblyName(assemblyFullname).Name;
+        // if (string.IsNullOrEmpty(assemblyName))
+        //     return;
+        //     
+        // Languages = factory.Create(type.Name, assemblyName);
+    }
 
     // public override void OnActionExecuting(ActionExecutingContext context)
     // {
